@@ -1,3 +1,9 @@
+html {
+    background: url("../media/images/Marx_Engels_Lenin944.svg.png") no-repeat fixed;
+    background-size:contain;
+    background-position: center top;
+}
+
 body {
     background-color: lightgray;
 }
