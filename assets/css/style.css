@@ -1,3 +1,15 @@
+@font-face {
+    font-family:'propaganda';
+    src: url(../fonts/propaganda.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'PytoneOne';
+    src: url(../fonts/PaytoneOne-Regular.ttf);
+}
+
+/* Global Style */
+
 html {
     background: url("../media/images/Marx_Engels_Lenin944.svg.png") no-repeat fixed;
     background-size:contain;
@@ -6,4 +18,9 @@ html {
 
 body {
     background-color: lightgray;
+    font-family:'PytoneOne',sans-serif;
 }
+
+h1,h2,h3 {
+    font-family:'propaganda',sans-serif;
+} 
