@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!--favicon links from https://www.favicon-generator.org/-->
+    <!--favicon links from https://www.favicon-generator.org/-->
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
@@ -25,16 +25,36 @@
     <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- font awsome icons-->
+    <script src="https://kit.fontawesome.com/b471b308cb.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Commie Quiz</title>
 </head>
 
 <body>
-    <h1>Commie Quiz</h1>
+    <div id="header-area">
+        <h1 id="heading">The Commie Quiz</h1>
+    </div>
 
-    <p>ComuQuiz is an interactive online quiz for users who would like to test their knowledge about Communism in a fun, and challenging way. Users will 
-        have the ability to choose the quiz difficulty and the app will calculate a score based on the difficulty chosen according to the rules of the game.</p>
+    <!-- All game screens will display within the display-area div -->
+    <div id="display-area">
+        <div id="controls-area">
+            <div id="home-icon">
+                <button type="button">I'm a button
+                    <i class="fa-solid fa-house"></i>
+                </button>    
+            </div>
 
+            <div id="sound-icon">
+                <i class="fa-solid fa-volume-off"></i>
+            </div>
+
+            <div id="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="assets/js/script.js"></script>
 

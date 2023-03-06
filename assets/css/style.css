@@ -14,13 +14,39 @@ html {
     background: url("../media/images/Marx_Engels_Lenin944.svg.png") no-repeat fixed;
     background-size:contain;
     background-position: center top;
+    background-color: lightgray;
 }
 
 body {
-    background-color: lightgray;
     font-family:'PytoneOne',sans-serif;
 }
 
 h1,h2,h3 {
     font-family:'propaganda',sans-serif;
 } 
+
+/* Feature Areas */
+#header-area{
+    width:100vw;
+    height:2rem;
+    font-size: 3em;
+    text-align: center;
+    background-color: transparent;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#controls-area{
+    visibility: hidden;
+    position: absolute;
+    width: 70vw;
+    height: 75vh;
+    background-color: red;
+}
+
+/* Styles */
+#heading {
+    margin:.05rem 0rem 1rem;
+    padding: .5em ;
+}
