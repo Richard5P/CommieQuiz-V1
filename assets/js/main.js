@@ -7,4 +7,5 @@ window.onload = function () {
         it.</p>`;
     document.getElementById("home-area").innerHTML = html;
   };
+  
 
