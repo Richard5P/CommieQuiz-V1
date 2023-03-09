@@ -43,18 +43,38 @@
             <button type="button" class="control-button">
                 <i class="fa-solid fa-volume-off"></i>
             </button>
-            <button type="button" id="menu" class="control-button">
+            <button type="button" id="btn-menu" class="control-button">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
         <div id="game-area">
             <section>
-                <div id="welcome">
-                    <h2>Welcome to the Commie Quiz!</h2>
-                    <p>A fun game where you can test your current knowledge about Communism and find resources for
+                <div id="welcome-panel" class="welcome">
+                    <h2 class="welcome"> Welcome to the Commie Quiz!</h2>
+                    <p class="welcome">A fun game where you can test your current knowledge about Communism and find resources for
                         expanding on it.</p>
-                    <button id="start-game">Start</button>
+                    <button id="start-game" class="welcome">Start</button>
+                </div>
+            </section>
+
+            <section>
+                <div id ="menu-panel" class="menu hidden">
+                    <h2 class="hidden">Menu</h2>
+                    <button id="btn-welcome" class="menu hidden">Home</button>
+                    <button id="btn-quiz" class="menu hidden">Quiz</button>
+                    <button id="btn-rules" class="menu hidden">Rules</button>
+                    <button id="btn-scores" class="menu hidden">Scores</button>
+                </div>
+            </section>
+
+            <section>
+                <div id="quiz" class="hidden">
+                    <h2>Question</h2>
+                    <button id="btn-answer-1" class="btn-answer">Answer 1</button>
+                    <button id="btn-answer-1" class="btn-answer">Answer 1</button>
+                    <button id="btn-answer-1" class="btn-answer">Answer 1</button>
+                    <button id="btn-answer-1" class="btn-answer">Answer 1</button>
                 </div>
             </section>
 

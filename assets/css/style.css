@@ -104,3 +104,9 @@ h1,h2,h3 {
 #welcome {
     visibility: visible;
 }
+
+/* Functional classes */
+
+.hidden {
+    visibility: hidden;
+}
