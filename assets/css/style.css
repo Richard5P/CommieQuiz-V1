@@ -87,6 +87,7 @@ h1,h2,h3 {
     background-color: transparent;
 }
 
+
 /*  Button styles  */
 .control-button {
     margin-right: 1rem;
@@ -96,4 +97,10 @@ h1,h2,h3 {
 
 #menu {
     float: right;
+}
+
+/* Game Panels */
+
+#welcome {
+    visibility: visible;
 }
