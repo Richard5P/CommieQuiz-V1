@@ -110,3 +110,27 @@ h1,h2,h3 {
 .hidden {
     visibility: hidden;
 }
+
+#btn-welcome
+{   position:absolute;
+    top:4rem;
+    left: 4rem;
+}
+
+#btn-quiz
+{   position:absolute;
+    top:6rem;
+    left: 4rem;
+}
+
+#btn-rules
+{   position:absolute;
+    top:8rem;
+    left: 4rem;
+}
+
+#btn-scores
+{   position:absolute;
+    top:10rem;
+    left: 4rem;
+}
