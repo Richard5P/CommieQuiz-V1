@@ -43,7 +43,7 @@
             <button type="button" class="control-button">
                 <i class="fa-solid fa-volume-off"></i>
             </button>
-            <button type="button" id="btn-menu" class="control-button">
+            <button type="button" id="menu-button" class="control-button">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
@@ -61,10 +61,10 @@
             <section>
                 <div id ="menu-panel" class="menu hidden">
                     <h2 class="hidden">Menu</h2>
-                    <button id="btn-welcome" class="menu">Home</button>
-                    <button id="btn-quiz" class="menu">Quiz</button>
-                    <button id="btn-rules" class="menu">Rules</button>
-                    <button id="btn-scores" class="menu">Scores</button>
+                    <button id="btn-welcome" class="btn-menu">Home</button>
+                    <button id="btn-quiz" class="btn-menu">Quiz</button>
+                    <button id="btn-rules" class="btn-menu">Rules</button>
+                    <button id="btn-scores" class="btn-menu">Scores</button>
                 </div>
             </section>
 
@@ -74,9 +74,8 @@
                 </div>
             </section>
 
-        </div>
-        <!--
-        <div id="rules-area">
+
+        <div id="rules-panel" class="hidden">
             <label for="game-rules">
                 <details>
                     <summary>
@@ -102,7 +101,8 @@
                     maximum questions for the game level.</li>
             </ul>
         </div>
-
+    </div>
+ <!--
         <div id="quiz-area">
 
         </div>
@@ -117,7 +117,7 @@
     -->
     </div>
     <!-- JavaScript Main Script -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/old-main.js"></script>
 
     <!-- JavaScript Questions Script -->
     <script src="assets/js/questions.js"></script>
