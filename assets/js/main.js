@@ -57,11 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
     /*        for (let button in homePanelButtons) {
                 button.addEventListener("click", displayHomePanel);
             } */
-    homePanelButton.addEventListener("click", displayHomePanel);     
+    homePanelButton.addEventListener("click", displayHomePanel);
     menuPanelButton.addEventListener("click", displayMenuPanel);
-    quizPanelButton.addEventListener("click", displayQuizPanel);
-    rulesPanelButton.addEventListener("click", displayRulesPanel);
-    scoresPanelButton.addEventListener("click", displayScoresPanel);
 })
 
 function displayHomePanel() {
@@ -88,10 +85,18 @@ function displayMenuPanel() {
 
 function displayQuizPanel() {
     console.log("Quiz Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
-    }
-    displayArea.innerHTML = `<p>Quiz Panel</p>`;
+    countDown();
+    /*    if (displayArea.hasChildNodes()) {
+            displayArea.removeChild(displayArea.firstChild);
+        }
+        for (let question of quizQuestions){
+            let correctAnswer = question.answer;
+            let quizHTML = `<h2>${question.question}</h2>
+            <button id="btn-answer-1" class="btn-answer">${question.a}</button>
+            <button id="btn-answer-2" class="btn-answer">${question.b}</button>
+            <button id="btn-answer-3" class="btn-answer">${question.c}</button>
+            <button id="btn-answer-4" class="btn-answer">${question.d}</button>`;
+            displayArea.innerHTML=quizHTML; */
 }
 
 function displayRulesPanel() {
@@ -105,14 +110,7 @@ function displayRulesPanel() {
 /* 
     let quizArea = document.getElementById("quiz-panel");
     let resultsArea = document.getElementById("results-area");
-    for (let question of quizQuestions){
-        let correctAnswer = question.answer;
-        let quizHTML = `<h2>${question.question}</h2>
-        <button id="btn-answer-1" class="btn-answer">${question.a}</button>
-        <button id="btn-answer-2" class="btn-answer">${question.b}</button>
-        <button id="btn-answer-3" class="btn-answer">${question.c}</button>
-        <button id="btn-answer-4" class="btn-answer">${question.d}</button>`;
-        quizArea.innerHTML=quizHTML;
+    
         if(!runQuiz(question.answer)){
             /* append answer and linkto to resultsPanel */
 
@@ -123,3 +121,24 @@ function displayScoresPanel() {
     }
     displayArea.innerHTML = `<p>Scores Panel</p>`;
 }
+
+function countDown() {
+    // Set the date we're counting down to
+    var countDownDate = new Date(Date.now() + (1000 * 60 * 2) + 2);
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+        // Get today's date and time
+        var now = new Date().getTime();
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+        // Calculate the minutes and seconds
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("timer").innerHTML = minutes + "." + seconds;
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+        }
+    }, 1000)
+};
