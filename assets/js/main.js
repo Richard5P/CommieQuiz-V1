@@ -85,18 +85,10 @@ function displayMenuPanel() {
 
 function displayQuizPanel() {
     console.log("Quiz Panel");
-    countDown();
-    /*    if (displayArea.hasChildNodes()) {
-            displayArea.removeChild(displayArea.firstChild);
-        }
-        for (let question of quizQuestions){
-            let correctAnswer = question.answer;
-            let quizHTML = `<h2>${question.question}</h2>
-            <button id="btn-answer-1" class="btn-answer">${question.a}</button>
-            <button id="btn-answer-2" class="btn-answer">${question.b}</button>
-            <button id="btn-answer-3" class="btn-answer">${question.c}</button>
-            <button id="btn-answer-4" class="btn-answer">${question.d}</button>`;
-            displayArea.innerHTML=quizHTML; */
+    if (displayArea.hasChildNodes()) {
+        displayArea.removeChild(displayArea.firstChild);
+    loadQuizQuestions();
+     }
 }
 
 function displayRulesPanel() {
@@ -122,6 +114,21 @@ function displayScoresPanel() {
     displayArea.innerHTML = `<p>Scores Panel</p>`;
 }
 
+function loadQuizQuestions(){
+    let correctAnswerCount = 0;
+    let correctAnswerDisplay = document.getElementById("correct-answers");
+    for (let question of quizQuestions){
+        let correctAnswer = question.answer;
+        let quizHTML = `<h2>${question.question}</h2>
+        <button id="btn-answer-1" class="btn-answer">${question.a}</button>
+        <button id="btn-answer-2" class="btn-answer">${question.b}</button>
+        <button id="btn-answer-3" class="btn-answer">${question.c}</button>
+        <button id="btn-answer-4" class="btn-answer">${question.d}</button>`;
+        displayArea.innerHTML=quizHTML; 
+        correctAnswerDisplay.innerText = correctAnswerCount;
+    }
+} 
+
 function countDown() {
     // Set the date we're counting down to
     var countDownDate = new Date(Date.now() + (1000 * 60 * 2) + 2);
@@ -135,10 +142,10 @@ function countDown() {
         // Calculate the minutes and seconds
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        document.getElementById("timer").innerHTML = minutes + "." + seconds;
+        document.getElementById("timer").innerText = minutes + "." + seconds;
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);
         }
-    }, 1000)
-};
+    }, 1000);
+}
