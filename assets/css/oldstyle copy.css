@@ -71,7 +71,7 @@ h1,h2,h3 {
     background-color: var(--commie-red75);
 }
 
-#game-area{
+#panel-area{
     position:absolute;
     top: 2rem;
     width: 80%;

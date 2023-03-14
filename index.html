@@ -29,9 +29,12 @@
 </head>
 
 <body>
-    <header id="controls-area">
+    <header>
         <h1 id="header">The Commie Quiz</h1>
-        <nav>
+    </header>
+
+    <main id="display-area">
+        <nav id="controls-area">
             <ul>
                <li><button id="btn-home" type="button" class="control-button">
                 <i class="fa-solid fa-house"></i>
@@ -50,12 +53,48 @@
             </button></li> 
             </ul>
         </nav>
-    </header>
+<!-- All game panels will be added and removed as a child of display area -->
+        <div id="panel-area">
+        <section id="welcome-panel" class="welcome">
+            <h2 class="welcome"> Welcome to the Commie Quiz!</h2>
+            <p class="welcome">A fun game where you can test your current knowledge about Communism and find resources
+                for
+                expanding on it.</p>
+        </section>
 
-    <main>
-<!-- All game panels will be added and removed as a child of display area-->
-        <div id="display-area">
-            <section id="game-area">
+        <section id="menu-panel" class="hidden">
+            <h2 class="hidden">Menu</h2>
+            <button id="btn-welcome" class="btn-menu">Home</button>
+            <button id="btn-quiz" class="btn-menu">Quiz</button>
+            <button id="btn-rules" class="btn-menu">Rules</button>
+            <button id="btn-scores" class="btn-menu">Scores</button>
+        </section>
+
+        <section id="rules-panel" class="hidden">
+            <label for="game-rules">
+                <details>
+                    <summary>
+                        Rules of the game
+                    </summary>
+                    As a non-competitive socialist game, the rules have been designed for you to challenge yourself and
+                    provide you with an educational experience that you will share with your friends. After all,
+                    cooperation rather than competition is what distinguishes Communism from other ideologies.
+                </details>
+            </label>
+            <ul id="game-rules">
+                <li>Each game runs for a maximum of 2 minutes.</li>
+                <li>Users can select 3 different challenges to alter the maximum response time for each question.</li>
+                <li>
+                    <ul>
+                        <li>Comrade - 20s interval (max 6 questions).</li>
+                        <li>Vanguard - 20s interval (max 8 questions).</li>
+                        <li>Intelligentsia - 10s interval (max 12 questions).</li>
+                    </ul>
+                </li>
+                <li>Each correct answer will add a red star the user's score.</li>
+                <li>The final score is calculated as a percentage based on the number of correct answer divided by the
+                    maximum questions for the game level.</li>
+            </ul>
             </section>
         </div>
             
@@ -63,7 +102,7 @@
     <script src="assets/js/main.js"></script>
 
     <!-- JavaScript Questions Script -->
- <!--   <script src="assets/js/questions.js"></script> -->
+        <script src="assets/js/questions.js"></script>
 
 
 

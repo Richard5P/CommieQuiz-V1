@@ -10,7 +10,7 @@ window.onload = function () {
         console.log("in listener");
         document.getElementById("start-game").addEventListener("click"), function(){
             console.log("clicked");
-            document.getElementById("game-area").style.backgroundColor = "magenta";
+            document.getElementById("panel-area").style.backgroundColor = "magenta";
             }
         }
     }
@@ -81,7 +81,7 @@ function displayQuestion () {
 
 
 function displayChildren() {
-    let divKids = document.getElementById("game-area");
+    let divKids = document.getElementById("panel-area");
     for (let i = 0; i < divKids.length; i++) {
         console.log(divKids[i].tagName);
     }

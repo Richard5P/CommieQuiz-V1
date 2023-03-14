@@ -60,7 +60,7 @@ h1,h2,h3 {
     margin-right: 30vw;
 }
 
-#game-area{
+#panel-area{
     position:absolute;
     top: 2rem;
     width: 80%;
@@ -75,15 +75,21 @@ h1,h2,h3 {
     top:0;
     width: 100%;
     visibility: visible;
-    text-align: justify;
-    display: inline;
     height: 2.7em;
     line-height: 2.7em;
     background-color: var(--commie-red75);
 }
 
+#controls-area>ul {
+    list-style-type: none;
+}
+
+#controls-area>ul>li {
+    display: inline;
+}
+
 /* Styles */
-#header {
+#header{
     margin:0;
     padding: 1.75rem 0;
     font-size: 4.25em;
@@ -99,7 +105,7 @@ h1,h2,h3 {
     font-size: 2rem;
 }
 
-#menu-button {
+#btn-menu {
     float: right;
 }
 
