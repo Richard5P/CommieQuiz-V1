@@ -43,9 +43,13 @@ html, body, button {
     font-family:'PytoneOne',sans-serif;
 }
 
-h1,h2,h3 {
+h1 {
     font-family:'propaganda',sans-serif;
 } 
+
+h2, h3 {
+    font-family:'PytoneOne',sans-serif;
+}
 
 
 /* Feature Areas */
@@ -120,12 +124,11 @@ h1,h2,h3 {
 
 .btn-answer {
     background-color: var(--clr-btn);
-    border: .5rem groove var(--clr-bnt-border);
     margin: 1rem;
-    width: 170px;
-    height: 60px;
+    width: 10em;
+    height: 5em;
     border: none;
-    font-size: 16px;
+    font-size: 1.15em;
     color: var(--clr-text);
   }
 /* Game Panels */
@@ -134,17 +137,20 @@ h1,h2,h3 {
     padding:.4rem 2rem;
 }
 
-#rules-panel {
+.panel {
     position:absolute;
-    top: 2rem;
+    top: 1rem;
     left: 2rem;
-    margin: 1rem;
+    margin: 0;
+    padding: 0;
 }
 
 /* Functional classes */
 
 .hidden {
     visibility: hidden;
+    margin: 0;
+    padding:0;
 }
 
 #btn-welcome

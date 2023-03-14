@@ -6,8 +6,15 @@ const welcomePanel = document.getElementById("welcome-panel");
 const menuPanel = document.getElementById("menu-panel");
 const rulesPanel = document.getElementById("rules-panel");
 const quizPanel = document.getElementById("quiz-panel");
+const scoresPanel = document.getElementById("scores-panel");
+const quizQuestion = document.getElementById("quiz-question");
+const quizAnswer1 = document.getElementById("btn-answer-1");
+const quizAnswer2 = document.getElementById("btn-answer-2");
+const quizAnswer3 = document.getElementById("btn-answer-3");
+const quizAnswer4 = document.getElementById("btn-answer-4");
 
-
+let currentPanel = "welcome-panel";
+let quizCorrectAnswer = "";
 
 const countDownDate = new Date();
 // const gameCountDownInterval = setInterval(displayGameCountDown, 1000);
@@ -62,58 +69,61 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btn-next").addEventListener("keydown", stopCountDown);
 });
 
-
+function hidePanels(){
+    let panels = document.getElementsByClassName("panel");
+    for (let i=0;i < panels.length; i++)
+        panels[i].classList.add("hidden");
+}
 
 function displayHomePanel() {
     console.log("Home Panel");
-
-    panelArea.firstChild.classList;
+    hidePanels();
+    welcomePanel.classList.remove ("hidden");
+    currentPanel = "welcome-panel";
 }
 
 function displayMenuPanel() {
     console.log("Menu Panel");
-    if (panelArea.hasChildNodes()) {
-        panelArea.removeChild(panelArea.firstChild);
-    }
-    panelArea.innerHTML = menuPanel;
-
+    hidePanels();
+    menuPanel.classList.remove ("hidden");
+    currentPanel = "menu-panel";
 }
 
 
 function displayQuizPanel() {
     console.log("Quiz Panel");
-    if (panelArea.hasChildNodes()) {
-        panelArea.removeChild(panelArea.firstChild);
-        loadQuizQuestions();
+    hidePanels();
+    quizPanel.classList.remove ("hidden");
+    currentPanel = "quiz-panel";
+    loadQuizQuestions();
     }
-}
 
 function displayRulesPanel() {
     console.log("Rules Panel");
-    if (panelArea.hasChildNodes()) {
-        panelArea.removeChild(panelArea.firstChild);
-    }
-    panelArea.innerHTML = rulesPanel;
+    hidePanels();
+    rulesPanel.classList.remove ("hidden");
+    currentPanel = "rules-panel";
 }
 
 function displayScoresPanel() {
     console.log("Scores Panel");
-    if (panelArea.hasChildNodes()) {
-        panelArea.removeChild(panelArea.firstChild);
-    }
-    panelArea.innerHTML = `<p>Scores Panel</p>`;
+    hidePanels();
+    scoresPanel.classList.remove ("hidden");
+    currentPanel = "scores-panel";
 }
 
 function loadQuizQuestions() {
+    console.log("load Quiz Questions");
     document.getElementById("correct-answers").value = 0;
-    for (let question of quizQuestions) {
-        let quizHTML = `<h2>${question.question}</h2>
-        <button id="btn-answer-1" class="btn-answer">${question.a}</button>
-        <button id="btn-answer-2" class="btn-answer">${question.b}</button>
-        <button id="btn-answer-3" class="btn-answer">${question.c}</button>
-        <button id="btn-answer-4" class="btn-answer">${question.d}</button>
-        <button id="btn-next">Next</button>`;
-        panelArea.innerHTML = quizHTML;
+    for (let currentQuestion of quizQuestions) {
+        quizQuestion.innerText = currentQuestion.question;
+        quizAnswer1.innerText = currentQuestion.a;
+        quizAnswer2.innerText = currentQuestion.b;
+        quizAnswer3.innerText = currentQuestion.c;
+        quizAnswer4.innerText = currentQuestion.d;
+        quizCorrectAnswer = currentQuestion.answer;
+        console.log(quizCorrectAnswer);
+//        while(displayQuestionCountDown){};
     }
 }
 
@@ -142,10 +152,15 @@ function displayQuestionCountDown() {
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);
+            return(false);
         }
     }, 1000);
 }
 
 function stopCountDown() {
 
+}
+
+function nextQuestion(){
+    let i = 1;
 }
