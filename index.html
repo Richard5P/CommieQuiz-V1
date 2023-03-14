@@ -24,12 +24,12 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-<!--   <link rel="stylesheet" href="assets/css/style.css"> --> 
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Commie Quiz</title>
 </head>
 
 <body>
-    <header>
+    <header id="controls-area">
         <h1 id="header">The Commie Quiz</h1>
         <nav>
             <ul>
@@ -54,14 +54,16 @@
 
     <main>
 <!-- All game panels will be added and removed as a child of display area-->
-        <section id="display-area">
-        </section>
+        <div id="display-area">
+            <section id="game-area">
+            </section>
+        </div>
             
     <!-- JavaScript Main Script -->
     <script src="assets/js/main.js"></script>
 
     <!-- JavaScript Questions Script -->
-    <script src="assets/js/questions.js"></script>
+ <!--   <script src="assets/js/questions.js"></script> -->
 
 
 

@@ -1,19 +1,50 @@
 /*
+Quiz Questions
+*/
+
+const quizQuestions = [{
+    question: "\'There are decades where nothing happens; and there are weeks where decades happen.\' Is a quote from?",
+    a: "Karl Marx",
+    b: "Leon Trosky",
+    c: "Rosa Luxemburg",
+    d: "Vladimir Lenin",
+    answer: "D",
+    linkto: {
+        docName: "War and Revolution",
+        url: "https://www.marxists.org/archive/lenin/works/1917/may/14.htm",
+    }
+},
+{
+    question: "\'A specter is haunting Europe—the specter of Communism.\' was first published in?",
+    a: "Das Kapital",
+    b: "Neue Rheinische Zeitung",
+    c: "The Communist Manifesto",
+    d: "Founding Documents of the Communist League",
+    answer: "C",
+    linkto: {
+        docName: "The Communist Manifesto",
+        url: "https://www.marxists.org/archive/marx/works/1848/communist-manifesto/",
+    },
+}
+]
+
+/*
 Game start and control script
  */
 
 // Variables
 const homePanelButton = document.getElementById("btn-home");
 const menuPanelButton = document.getElementById("btn-menu");
-console.log(menuPanelButton);
-const displayArea = document.getElementById("display-area");
+const gameArea = document.getElementById("game-area");
+const countDownDate = new Date();
+// const gameCountDownInterval = setInterval(displayGameCountDown, 1000);
+//const userNextQuestionInterval = setInterval(displayQuestionCountDown, 1000);
 
 // Panels html
 const welcomePanel = `<section id="welcome-panel" class="welcome">
 <h2 class="welcome"> Welcome to the Commie Quiz!</h2>
 <p class="welcome">A fun game where you can test your current knowledge about Communism and find resources for
     expanding on it.</p>
-<button id="start-game" class="welcome">Start</button>
 </section>`
 
 const menuPanel = `<section id ="menu-panel">
@@ -24,7 +55,7 @@ const menuPanel = `<section id ="menu-panel">
 <button id="btn-scores" class="btn-menu">Scores</button>
 </section>`;
 
-const rulesPanel = `        <section id="rules-panel" class="hidden">
+const rulesPanel = `        <section id="rules-panel">
 <label for="game-rules">
     <details>
         <summary>
@@ -51,6 +82,10 @@ const rulesPanel = `        <section id="rules-panel" class="hidden">
 </ul>
 </section>`;
 
+window.onload = function() {
+    displayHomePanel();
+};
+
 // Add event listeners
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -61,75 +96,103 @@ document.addEventListener("DOMContentLoaded", function () {
     menuPanelButton.addEventListener("click", displayMenuPanel);
 })
 
+
+
 function displayHomePanel() {
     console.log("Home Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
+    if (gameArea.hasChildNodes()) {
+        gameArea.removeChild(gameArea.firstChild);
     }
-    displayArea.innerHTML = welcomePanel;
+    gameArea.innerHTML = welcomePanel;
 }
 
 function displayMenuPanel() {
     console.log("Menu Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
+    if (gameArea.hasChildNodes()) {
+        gameArea.removeChild(gameArea.firstChild);
     }
-    displayArea.innerHTML = menuPanel;
-    console.log("display area", document.getElementById("btn-welcome"));
+    gameArea.innerHTML = menuPanel;
     document.getElementById("btn-welcome").addEventListener("click", displayHomePanel);
     document.getElementById("btn-quiz").addEventListener("click", displayQuizPanel);
     document.getElementById("btn-rules").addEventListener("click", displayRulesPanel);
     document.getElementById("btn-scores").addEventListener("click", displayScoresPanel);
-
 }
+
 
 function displayQuizPanel() {
     console.log("Quiz Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
-    loadQuizQuestions();
-     }
+    if (gameArea.hasChildNodes()) {
+        gameArea.removeChild(gameArea.firstChild);
+        loadQuizQuestions();
+    }
 }
 
 function displayRulesPanel() {
     console.log("Rules Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
+    if (gameArea.hasChildNodes()) {
+        gameArea.removeChild(gameArea.firstChild);
     }
-    displayArea.innerHTML = rulesPanel;
+    gameArea.innerHTML = rulesPanel;
 }
-
-/* 
-    let quizArea = document.getElementById("quiz-panel");
-    let resultsArea = document.getElementById("results-area");
-    
-        if(!runQuiz(question.answer)){
-            /* append answer and linkto to resultsPanel */
 
 function displayScoresPanel() {
     console.log("Scores Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
+    if (gameArea.hasChildNodes()) {
+        gameArea.removeChild(gameArea.firstChild);
     }
-    displayArea.innerHTML = `<p>Scores Panel</p>`;
+    gameArea.innerHTML = `<p>Scores Panel</p>`;
 }
 
-function loadQuizQuestions(){
-    let correctAnswerCount = 0;
-    let correctAnswerDisplay = document.getElementById("correct-answers");
-    for (let question of quizQuestions){
-        let correctAnswer = question.answer;
+function loadQuizQuestions() {
+    document.getElementById("correct-answers").value = 0;
+    for (let question of quizQuestions) {
         let quizHTML = `<h2>${question.question}</h2>
         <button id="btn-answer-1" class="btn-answer">${question.a}</button>
         <button id="btn-answer-2" class="btn-answer">${question.b}</button>
         <button id="btn-answer-3" class="btn-answer">${question.c}</button>
-        <button id="btn-answer-4" class="btn-answer">${question.d}</button>`;
-        displayArea.innerHTML=quizHTML; 
-        correctAnswerDisplay.innerText = correctAnswerCount;
+        <button id="btn-answer-4" class="btn-answer">${question.d}</button>
+        <button id="btn-next">Next</button>`;
+        gameArea.innerHTML = quizHTML;
+        document.getElementById("btn-answer-1").addEventListener("click", function () {
+            checkAnswer(question.answer, "A");
+        });
+        document.getElementById("btn-answer-2").addEventListener("click", function () {
+            checkAnswer(question.answer, "B");
+        });
+        document.getElementById("btn-answer-3").addEventListener("click", function () {
+            checkAnswer(question.answer, "C");
+        });
+        document.getElementById("btn-answer-4").addEventListener("click", function () {
+            checkAnswer(question.answer, "D");
+        });
+        document.getElementById("btn-answer-1").addEventListener("keydown", function () {
+            checkAnswer(question.answer, "A");
+        });
+        document.getElementById("btn-answer-2").addEventListener("keydown", function () {
+            checkAnswer(question.answer, "B");
+        });
+        document.getElementById("btn-answer-3").addEventListener("keydown", function () {
+            checkAnswer(question.answer, "C");
+        });
+        document.getElementById("btn-answer-4").addEventListener("keydown", function () {
+            checkAnswer(question.answer, "D");
+        });
+        document.getElementById("btn-next").addEventListener("click", nextQuestion);
+        document.getElementById("btn-next").addEventListener("click", stopCountDown);
+        document.getElementById("btn-next").addEventListener("keydown", nextQuestion);
+        document.getElementById("btn-next").addEventListener("keydown", stopCountDown);
     }
-} 
+}
 
-function countDown() {
+
+function checkAnswer(correctAnswer, selectedAnswer) {
+    let correctAnswerCount = document.getElementById("correct-answers").value;
+    Display.innerText = correctAnswer === selectedAnswer ? ++correctAnswerCount : correctAnswerCount;
+}
+
+// Add displayGameCountDown 
+
+function displayQuestionCountDown() {
     // Set the date we're counting down to
     var countDownDate = new Date(Date.now() + (1000 * 60 * 2) + 2);
 
@@ -149,3 +212,8 @@ function countDown() {
         }
     }, 1000);
 }
+
+function stopCountDown(){
+
+}
+
