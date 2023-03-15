@@ -1,6 +1,7 @@
 // Variables
 const homePanelButton = document.getElementById("btn-home");
 const menuPanelButton = document.getElementById("btn-menu");
+const correctAnswerDisplay = document.getElementById("correct-answers");
 const panelArea = document.getElementById("panel-area");
 const welcomePanel = document.getElementById("welcome-panel");
 const menuPanel = document.getElementById("menu-panel");
@@ -15,6 +16,10 @@ const quizAnswer4 = document.getElementById("btn-answer-4");
 
 let currentPanel = "welcome-panel";
 let quizCorrectAnswer = "";
+let correctAnswerCount = 0;
+let quizTimerBool = true;
+let questionTimerBool = true;
+let nextQuestionBool = true;
 
 const countDownDate = new Date();
 // const gameCountDownInterval = setInterval(displayGameCountDown, 1000);
@@ -30,7 +35,8 @@ window.onload = function () {
 document.addEventListener("DOMContentLoaded", function () {
     // controls Area
     homePanelButton.addEventListener("click", displayHomePanel);
-    menuPanelButton.addEventListener("click", displayMenuPanel)
+    menuPanelButton.addEventListener("click", displayMenuPanel);
+    menuPanelButton.addEventListener("click", stopCountDown);
 
     // menu panel
     document.getElementById("btn-welcome").addEventListener("click", displayHomePanel);
@@ -40,28 +46,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //quiz panel
     document.getElementById("btn-answer-1").addEventListener("click", function () {
-        checkAnswer(question.answer, "A");
+        checkAnswer("A");
     });
     document.getElementById("btn-answer-2").addEventListener("click", function () {
-        checkAnswer(question.answer, "B");
+        checkAnswer("B");
     });
     document.getElementById("btn-answer-3").addEventListener("click", function () {
-        checkAnswer(question.answer, "C");
+        checkAnswer("C");
     });
     document.getElementById("btn-answer-4").addEventListener("click", function () {
-        checkAnswer(question.answer, "D");
+        checkAnswer("D");
     });
     document.getElementById("btn-answer-1").addEventListener("keydown", function () {
-        checkAnswer(question.answer, "A");
+        checkAnswer("A");
     });
     document.getElementById("btn-answer-2").addEventListener("keydown", function () {
-        checkAnswer(question.answer, "B");
+        checkAnswer("B");
     });
     document.getElementById("btn-answer-3").addEventListener("keydown", function () {
-        checkAnswer(question.answer, "C");
+        checkAnswer("C");
     });
     document.getElementById("btn-answer-4").addEventListener("keydown", function () {
-        checkAnswer(question.answer, "D");
+        checkAnswer("D");
     });
     document.getElementById("btn-next").addEventListener("click", nextQuestion);
     document.getElementById("btn-next").addEventListener("click", stopCountDown);
@@ -116,6 +122,7 @@ function loadQuizQuestions() {
     console.log("load Quiz Questions");
     document.getElementById("correct-answers").value = 0;
     for (let currentQuestion of quizQuestions) {
+        do {
         quizQuestion.innerText = currentQuestion.question;
         quizAnswer1.innerText = currentQuestion.a;
         quizAnswer2.innerText = currentQuestion.b;
@@ -123,14 +130,21 @@ function loadQuizQuestions() {
         quizAnswer4.innerText = currentQuestion.d;
         quizCorrectAnswer = currentQuestion.answer;
         console.log(quizCorrectAnswer);
-//        while(displayQuestionCountDown){};
+        questionTimerBool = true;
+        }
+        while(displayQuestionCountDown() && questionTimerBool);
+        if (nextQuestionBool){
+            continue;
+        }
+        else {
+            break;
+        }
     }
 }
 
 
-function checkAnswer(correctAnswer, selectedAnswer) {
-    let correctAnswerCount = document.getElementById("correct-answers").value;
-    Display.innerText = correctAnswer === selectedAnswer ? ++correctAnswerCount : correctAnswerCount;
+function checkAnswer(selectedAnswer) {
+    correctAnswerDisplay.innerText = quizCorrectAnswer === selectedAnswer ? ++correctAnswerCount : correctAnswerCount;
 }
 
 // Add displayGameCountDown 
@@ -148,8 +162,8 @@ function displayQuestionCountDown() {
         // Calculate the minutes and seconds
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        document.getElementById("timer").innerText = minutes + "." + seconds;
-        // If the count down is over, write some text 
+        document.getElementById("timer").innerHTML = `${minutes} : ${seconds}`;
+        //If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);
             return(false);
@@ -158,9 +172,10 @@ function displayQuestionCountDown() {
 }
 
 function stopCountDown() {
-
+    questionTimerBool = false;
+    nextQuestionBool = false;
 }
 
 function nextQuestion(){
-    let i = 1;
+    nextQuestionBool = true;
 }
