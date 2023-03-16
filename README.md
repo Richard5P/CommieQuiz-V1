@@ -5,11 +5,11 @@ CommieQuiz is an interactive online quiz for users who would like to test their 
 Rules of the game:
 - Each game runs for a maximum of 2 minutes.
 - Users can select 3 different challenges to alter the maximum response time for each question
-    -Comrade - 20s (max 6 questions)
-    -Vanguard - 15s (max 8 questions)
-    -Intelligentsia- 10s (max 12 questions)
--Each correct answer will earn the user a red star.
--The score is calculated based on the the number of correct answers / max potential for the game level.
+    - Comrade - 20s (max 6 questions)
+    - Vanguard - 15s (max 8 questions)
+    - Intelligentsia- 10s (max 12 questions)
+- Each correct answer will earn the user a red star.
+- The score is calculated based on the the number of correct answers / max potential for the game level.
 
 
 ![CommieQuiz website on desktop and mobile device screens](/assets/docs/images/am_i_responsive.png)
@@ -25,7 +25,7 @@ Rules of the game:
     <summary><a href="#goals">Goals</a></summary>
 
     - [Visitor Goals](#visitor-goals)
-    - [Business Goals](#business-goals)
+    - [Site Owner's Goals](#business-goals)
     - [User Stories](#user-stories)
     </details></li>
 
@@ -114,40 +114,26 @@ Rules of the game:
 ## Goals
 ### Visitor Goals
 
-The target audience for LatAm Lingo are:
-- People who want to learn Mapudungun or Quechua.
-- People who want to understand Latin American indiginous cultures.
-- People who are interested in different cultures.
-- People that may want to reconect with their heritage.
-- People interested in working with indiginous colleagues.
-- People interested in the exploring Latin America.
-- People interested in Latin American history.
+The target audience for the CommieQuiz are:
+- People who want to play a quiz game.
+- People who want to test their knowledge about Communism.
+- People who are interested in learning about Communism.
+
 
 User goals are:
-- Get an overview of school.
-- Evaluate the authenticity of the site.
-- Explore the various programs.
-- Evaluate the potential benefits from the education.
-- Register their interest.
-- Enroll in a class.
+- Have fun.
+- Challenge themselves about their knowledge of Communism.
+- Learn more about communism and find new sources of information.
 
-LatAm Lingo fills these needs by:
-- Providing a comprehensive desciption of the methodology, formats and options available.
-- Opening with a reasuring image of native teachers and banner followed by a page detailing program qualifications.
-- Providing a detailed description of each program.
-- Gallery of pictures of places, events and cultures facilitated by education.
-- Registration page.
-- Program selection options on Registration page.
+The CommieQuiz fills these needs by:
+- Providing an educational game.
+- Providing easy navigation and game rules.
+- Providing a set of questions and potential answers about Communism.
+- - Providing challenge levels.
+- - Providing links to resources about questions answered incorrectly.
 
-### Business Goals
-LatAm Lingo's business goals extend beyond the professional desire for a profitable business. It includes their societal goal of education and awareness about their native heritage. Founded by a group of indigenous and mestizaje friends who met at university and shared the same dismay about how little their classmates (and society in general) knew about the LatAm indigenous population their primary objective is too keep their cultures alive and gain greater understanding. This has been made easier with the sposorship and support of both government and NGO heritage organisations.
-
-Thus the a summary of business goals would be:
-- Build awareness about indigenous cultures and their relevance today.
-- Gain mailing list members.
-- Inform potential clients about the educational services offered and increase class enrolment.
-- Educate the general public about the history of LatAm languages (pre and post-colonisation) and the indigenous populations.
-- Gain interest of potential clients and investors, and connect with social media.
+### Site Owner's Goals
+The site owner’s goal is to provide Communist edutainment for anyone interested in Communism/Socialism and hopefully encourage further learning.
 
 ### User Stories
 
@@ -169,15 +155,14 @@ Thus the a summary of business goals would be:
 [Wireframes History](https://drive.google.com/drive/folders/1MC90lZssd6aURDya1wHe3fbtSQ6kODsg?usp=share_link)
 
 ### Icons
-- Icons are taken from the [Fontawesome](https://fontawesome.com/) Free Icon library.
-- Icons are utilised in the footer for social account icons and the "more below" arrow on the gallery page.
+- Hammer and sickle icon created by Freepik - Flaticon[Flaticon](https://www.flaticon.com/free-icons/hammer-and-sickle)
 
 ### Content
 
 #### Fonts
-Both fonts are downloaded from [Google Fonts](https://fonts.google.com)
--Headings: Eczar, Medium 500
--Body: Merriweather, Regular 400
+Both fonts are supposed to look like lettering that might appear on a soviet propaganda poster.
+- Headings: [Probpaganda, 1001FONTS](https://www.1001fonts.com/propaganda-font.html)
+- Body: [Paytone One, Regular 400, GoogleFonts](https://fonts.google.com/specimen/Paytone+One?query=pay)
 
 #### Colors
 Color base was chosen from a red on in hero image using eyedropper.org. Red is generally associated with Communism and the various shades generated by colormind.io provided a range of options. I then decided on simple set of complementary and contrasting colors. The final selection was chosen using contrast-grid.eightshapes.com for WCAG 2.0 contrast grading as shown below: 
