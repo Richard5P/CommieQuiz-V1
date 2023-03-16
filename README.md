@@ -12,7 +12,8 @@ Rules of the game:
 -The score is calculated based on the the number of correct answers / max potential for the game level.
 
 
-![CommieQuiz website on desktop and mobile device screens](./assets/images/readme_images/am_i_responsive.png)
+![CommieQuiz website on desktop and mobile device screens](/assets/docs/images/am_i_responsive.png)
+
 
 #Table of Contents
 
@@ -188,106 +189,71 @@ Color base was chosen from a red on in hero image using eyedropper.org. Red is g
 ![Color contrast grid](./assets/docs/design/color_contrast_grid.png)
 
 ### Images
-- The images are a mixure of places, personalities and events chosen to evoke feelings of engagement, curiosity and adventure about native Latin America. All made more accessible with knowledge of the indigenous languages and cultures. 
-- Image sources:
-    - Free
-    -- ![Wikimedia](https://commons.wikimedia.org/wiki/File:South_America_on_the_globe_(red).svg)
-    -- ![Pixabay](https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4075970)
-    - Paid
-    -- ![iStock-photos](https://www.istockphoto.com/stock-photos)
+There are only 2 images; a background image of Marx, Engels and Lenin, and a hammer and sickle used for the favicon.
 
-![Sample of pictures in Gallery](./assets/images/readme_images/pictures.jpg)
+- Image sources:
+-   [Wikimedia](https://commons.wikimedia.org/wiki/File:Marx_Engels_Lenin.svg)
+-   [flatiron](https://www.flaticon.com/free-icons/hammer-and-sickle)  Hammer and sickle icons created by Freepik - Flaticon 
 
 - Favicon 
-    Generated from ![favicon-generator] (https://www.favicon-generator.org/) based on Globe from wikimedia
+    Generated from [favicon-generator] (https://www.favicon-generator.org/) based on Globe from wikimedia)
 
 ### Styling
 The overall approach that I took to styling was clarity and consistancy. This included:
 - Limited set of fonts and colors
--- High contrast on alternating pages
--- Distinct header and footer color schemes
--- Consistent use of page element styling
+- High contrast on alternating pages
+- Distinct header and footer color schemes
+- Consistent use of page element styling
 
 This approach carries over to the coding where the styling is organised for use.
 
 # Features
 ## Page Elements
-### Scrollable single page site
-This site presents the user with a single page allowing giving them the option of:
-- Scrolling through the site
-- Navigating directly to a content section
+### Controls bar
+The feature provides a consistant area for:
+- Navigating to home panel
+- Controling the sound
+- Navigating to the menu panel
+- Countdown timers
+- Correct answers
 
 ### Landing Page
-The Landing Page contains a large welcoming image of two native women in a school setting. The image, along with the accompanying text is meant to provide the user with immediate reasuring confirmation of LatAm Lingo's function and tone.
+The Landing Page contains a large inspiring image of three key figures in Communism; Marx, Engels and Lenin. The image is meant to provide the user with immediate reasuring confirmation of the CommieQuiz's function and tone.
 
-The image leaves room at the bottom of the page to show the top of the next section so that the user is encouraged to scroll down. In addition, the scrolling banner highlights some of the attributes of the program and ends with an down arrow to further indicate that there's more information below.
+The control buttons are always present for consistency and ease of use. Of particular use is the sound button which will play "The International" providing another confirmation of the theme.
 
-![Landing Page screenshot](./assets/images/readme_images/home-page.jpg)
+The user will be presented with a single button to start the game.
 
-### Navigation Bar
-This feature appears on all pages for consistency and ease of use.
-- The navbar is fixed so it is visible no matter how far you scroll.
-- The logo provides a link back to the home page at all times
-- The Navbar is simple and provides clear access to the primary user goals and site features; Home, About, Gallery, Registration
--- This feature allows the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button.
-- On smaller devices the menu collapses to a drop down "hamburger"
--- Note: I decided to leave the "hamburger" open/close feature to be user enabled as I found it useful for switching between the registration and about when deciding on a selecting a class. Future design would include more choices and information on the registration screen.
+![Landing Page screenshot](./assets/docs/images/home.png)
 
-![NavBar Desktop screenshot](./assets/images/readme_images/navbar-lg.png) 
+### Game difficulty panel
+This feature appears each time the user starts a new game and will provide the ability to vary the time-out minutes for each question.
+Note: this feature has not been included yet.
 
-![NavBar Hamburger Closed screenshot](./assets/images/readme_images/navbar-sm-closed.png) ![NavBar Hamburger Open](./assets/images/readme_images/navbar-sm-open.png)
+### Menu panel
+![Menu panel screenshot](./assets/docs/images/navigation.png) 
+This feature provides the user with navigation buttons to game feature panels.
 
-### Footer
-The footer contains links to social media platforms where LatAm Lingo has a presence, as well as the obligatory copyright. The particular social media sites shown were selected based on market research. 
+### Quiz panel
+![Quiz panel screenshot](/assets/docs/images/quiz.png)
+This feature presents a question with 4 potential answers. Upon loading the first question the game timer will display a 2 minute countdown.The user has a set amount of time to choose an option or press the next button.
+With each new question, the question timer will display a question timer per the user option.
 
-In contrast to the header, the footer floats at the bottom of the website (the bottom of the html page). This is for two reasons:
-1. The information provided is not essential to the user immediate goals
-2. The space is better utilized, particularly on smaller viewports, for functional content
-![Footer screenshot](./assets/images/readme_images/footer.png)
-
-### About
-This section contains all the content about the school and the programs. It is meant to provide the user with answers to decide if they will move to the next step of registration.
-- Educational Approach
-- Validity of Education
-- Content of the Courses
-- Format and duration of Courses
-- Sales contact information
-
-The section is structured with subsections 
-![About LatAm Lingo screenshot](./assets/images/readme_images/about-page.jpg)
-
-### Gallery
-- This section is purely for show and potentially provide a little extra enticement about new experiences that might be made possible with the language training.  To be honest, I don't think the gallery will significantly increase initial registration but may play a factor in avoiding buyers' remorse and gaining some general brand awareness.
-![Gallery screenshot](./assets/images/readme_images/gallery-page.jpg)
-
-### Register
-- This page is a one-stop section for user registration with LatAm Lingo. There are three levels of interest that a user could register:
-1. Add me to your mailing list. 
---Users who are interested in the school but not enrolling in any program currently can register their contact information and receive future emails.
---Users who enroll in a program are automatically added to the mailing list.
-2. Enroll me in one or two (more in the future) group courses currently available.
-3. Request an individual or bespoke group program.
-
-All user entry occurs on this page and where the validation takes place.
-- To facilitate the enrollment process and reduce the potential for user errors, most fields are chosen from lists rather than user entry. 
-- User entry fields employ validation rules for:
---Type of data
---Range of values 
-![Register screenshot](./assets/images/readme_images/register-page.jpg)
+### Scores panel
+Along with the score calculated according to the rules of the game, this feature will provide the user with list of questions answered incorrectly and reference to educational resources.
 
 ## Future Ideas
-This site was developed with a limited set of technologies; html and CSS. In addtion, while the developer with familiar with coding, this was the first use of these technologies. Hence, the is ripe for feature enhancements which I could envisage but not include in this release. All future enhancements are focused on improving the user experience. Based on my experience, I would group them into funttional and technical improvements.
+- User registration and score history
+- Multi-user registration and history
+- Question sets by:
+- - Difficulty
+- - Topic (e.g. history, social issues, political issues, economic issues)
 
 ### Functional - These are UI improvements that could be made with the existing technologies.
-- Reorganisation of registration by user community for clarity
-- Improve user ability to sign up for a program and view its description simultaineously
-- Improve responsiveness and flow with more advanced CSS features (such as Flex)
-- Include a Spanish version of the site to attract more Latin American users
+- First and foremost a functional game.
 
 ### Technical - These are UI improvements that could be gained from incorporating other technologies.
-
-- Field selection from a larger and changing set of values. Benifits would be more effective multi-choice scrollable selections (as from a database)
-- Multi-selection functionality using arrays
+- As I haven't fully applied the current technologies this remains to be seen.
 
 
 ## Technologies Used
@@ -295,7 +261,7 @@ This site was developed with a limited set of technologies; html and CSS. In add
 - Coding languages
     - html
     - css
-    - Used type selectors instead of classes (before realising class is a higher level)
+    - javascript
 - Development environment
     - github
     - gitpod
@@ -303,16 +269,15 @@ This site was developed with a limited set of technologies; html and CSS. In add
     
 ## Testing
 
-- Testing was done througout the development process with increasing number and specificity as the project progressed. 
-    1. Initial and frequent W3C html validation was done. 
-    2. Validation rules were developed and documented as the fields were included.
-    3. Once all the website features had all been included I designed a testing checklist which I completed periodically.
-    4. The testing components and [final results have been documented here](./assets/docs/testing/test-results.md)
+- As this never made it out of development, I did not conduct rigerous testing. However, in the interest of providing a snap shot of the current state of the project I ran a set of standard test. 
+    1. W3C html validation: 4 errors, 1 warning. 
+    2. W3C css validation: 0 error, 0 warnings .
+    3. JSHint: 0 errors, 46 warnings.
+    4. PageSpeedInsight: [Unacceptable Accessibility](/assets/docs/images/pagespeed.png)
 
 
 ## Unfixed Bugs
-- As noted in the testing document, the user is not returned to the same hero position when navigating to it from other sections. This was left as it did not significantly impact the user experience and, in the interest of delivery deadline, could be addressed in the next release.
-- The original design included a checkbox for multiple group class selection.  This really needed a database and arrays so the current implementation has two rows, each with it's own id.
+- Too numerous to list.
 
 ## Deployment
 ### Github Deployment
@@ -321,20 +286,18 @@ This site was developed with a limited set of technologies; html and CSS. In add
 
 ### Github Instructions
 1. Log in to your GitHub account.
-2. navigate to [https://github.com/Richard5P/LatAm-Lingo](https://github.com/Richard5P/LatAm-Lingo).
+2. navigate to [https://github.com/Richard5P/CommieQuiz](https://github.com/Richard5P/CommieQuiz).
 3. You can set up your own repository and copy or clone it, or you fork the repository.
 4. `git add`, `git commit` and `git push` to a GitHub repository, if necessary.
 5. GitHub pages will update from the master branch by default.
 6. Go to the **Settings** page of the repository.
 7. Scroll down to the **Github Pages** section.
 8. Select the Master Branch as the source and **Confirm** the selection.
-9. Wait a minute or two and it should be live for viewing. See my own [here](https://richard5p.github.io/LatAm-Lingo/).
+9. Wait a minute or two and it should be live for viewing. See my own [here](https://richard5p.github.io/CommieQuiz).
 
 ## Credits and Contact
 ### Content
-- Responsive Nav inspired by Kevin Powell https://www.youtube.com/watch?v=8QKOaTYvYUA&ab_channel=KevinPowell
-- Animated text inspired by Creative Rafikaul https://www.youtube.com/@CreativeRafikul
-- StackOverflow
+- Countdown inspired by Florin Pop [Simple Countdown Timer with JavaScript](https://www.youtube.com/watch?v=x7WJEmxNlEs&ab_channel=FlorinPop)
 
 Any code utilised from a site is documented and credited within the code.
 No credit is required for the other media other than provided by source.
@@ -342,3 +305,6 @@ No credit is required for the other media other than provided by source.
 ### Contact
 Please feel free to contact me at `richard.deutsch@gmail.com`
 
+
+
+[def]: ./assets/images/readme_images/am_i_responsive.png
