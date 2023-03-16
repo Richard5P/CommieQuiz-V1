@@ -79,7 +79,7 @@ h2, h3 {
     top:0;
     width: 100%;
     visibility: visible;
-    height: 2.7em;
+    height: 4em;
     line-height: 2.7em;
     background-color: var(--commie-red75);
 }
@@ -176,3 +176,9 @@ h2, h3 {
     top:15.5rem;
     left: 4rem;
 }
+
+.timer
+{   display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75em}
