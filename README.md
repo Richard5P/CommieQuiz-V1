@@ -188,18 +188,14 @@ Color base was chosen from a red on in hero image using eyedropper.org. Red is g
 ![Color contrast grid](./assets/docs/design/color_contrast_grid.png)
 
 ### Images
-- The images are a mixure of places, personalities and events chosen to evoke feelings of engagement, curiosity and adventure about native Latin America. All made more accessible with knowledge of the indigenous languages and cultures. 
-- Image sources:
-    - Free
-    -- ![Wikimedia](https://commons.wikimedia.org/wiki/File:South_America_on_the_globe_(red).svg)
-    -- ![Pixabay](https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4075970)
-    - Paid
-    -- ![iStock-photos](https://www.istockphoto.com/stock-photos)
+There are only 2 images; a background image of Marx, Engels and Lenin, and a hammer and sickle used for the favicon.
 
-![Sample of pictures in Gallery](./assets/images/readme_images/pictures.jpg)
+- Image sources:
+-   [Wikimedia](https://commons.wikimedia.org/wiki/File:Marx_Engels_Lenin.svg)
+-   [flatiron](https://www.flaticon.com/free-icons/hammer-and-sickle)  Hammer and sickle icons created by Freepik - Flaticon 
 
 - Favicon 
-    Generated from ![favicon-generator] (https://www.favicon-generator.org/) based on Globe from wikimedia
+    Generated from [favicon-generator] (https://www.favicon-generator.org/) based on Globe from wikimedia)
 
 ### Styling
 The overall approach that I took to styling was clarity and consistancy. This included:
