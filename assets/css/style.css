@@ -81,7 +81,7 @@ h2, h3 {
     visibility: visible;
     height: 4em;
     line-height: 2.7em;
-    background-color: var(--commie-red75);
+    background-color: transparent;
 }
 
 #controls-area>ul {
