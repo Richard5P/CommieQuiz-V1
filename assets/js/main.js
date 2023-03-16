@@ -1,151 +1,220 @@
-/*
-Game start and control script
- */
-
 // Variables
 const homePanelButton = document.getElementById("btn-home");
 const menuPanelButton = document.getElementById("btn-menu");
-console.log(menuPanelButton);
-const displayArea = document.getElementById("display-area");
+const gameTimerDisplay = document.getElementById("game-timer");
+const questionTimerDisplay = document.getElementById("question-timer");
+const correctAnswerDisplay = document.getElementById("correct-answers");
+const panelArea = document.getElementById("panel-area");
+const welcomePanel = document.getElementById("welcome-panel");
+const menuPanel = document.getElementById("menu-panel");
+const rulesPanel = document.getElementById("rules-panel");
+const quizPanel = document.getElementById("quiz-panel");
+const scoresPanel = document.getElementById("scores-panel");
+const welcomeButton = document.getElementById("btn-welcome");
+const quizButton = document.getElementById("btn-quiz");
+const rulesButton = document.getElementById("btn-rules");
+const scoresButton = document.getElementById("btn-scores");
+const quizQuestion = document.getElementById("quiz-question");
+const quizAnswer1 = document.getElementById("btn-answer-1");
+const quizAnswer2 = document.getElementById("btn-answer-2");
+const quizAnswer3 = document.getElementById("btn-answer-3");
+const quizAnswer4 = document.getElementById("btn-answer-4");
+const nextQuestion = document.getElementById("btn-next");
+const gameStartingMinutes = 2;
+let gameTime = gameStartingMinutes * 60;
+let questionTime = 5; // this should change for the user option
 
-// Panels html
-const welcomePanel = `<section id="welcome-panel" class="welcome">
-<h2 class="welcome"> Welcome to the Commie Quiz!</h2>
-<p class="welcome">A fun game where you can test your current knowledge about Communism and find resources for
-    expanding on it.</p>
-<button id="start-game" class="welcome">Start</button>
-</section>`
+let currentPanel = "welcome-panel";
+let quizCorrectAnswer = "";
+let correctAnswerCount = 0;
+let gameTimerBool = true;
+let questionTimerBool = true;
+let nextQuestionBool = true;
 
-const menuPanel = `<section id ="menu-panel">
-<h2 class="hidden">Menu</h2>
-<button id="btn-welcome" class="btn-menu">Home</button>
-<button id="btn-quiz" class="btn-menu">Quiz</button>
-<button id="btn-rules" class="btn-menu">Rules</button>
-<button id="btn-scores" class="btn-menu">Scores</button>
-</section>`;
+const countDownDate = new Date();
+// const gameCountDownInterval = setInterval(displayGameCountDown, 1000);
+//const userNextQuestionInterval = setInterval(displayQuestionCountDown, 1000);
 
-const rulesPanel = `        <section id="rules-panel" class="hidden">
-<label for="game-rules">
-    <details>
-        <summary>
-            Rules of the game
-        </summary>
-        As a non-competitive socialist game, the rules have been designed for you to challenge yourself and
-        provide you with an educational experience that you will share with your friends. After all,
-        cooperation rather than competition is what distinguishes Communism from other ideologies.
-    </details>
-</label>
-<ul id="game-rules">
-    <li>Each game runs for a maximum of 2 minutes.</li>
-    <li>Users can select 3 different challenges to alter the maximum response time for each question.</li>
-    <li>
-        <ul>
-            <li>Comrade - 20s interval (max 6 questions).</li>
-            <li>Vanguard - 20s interval (max 8 questions).</li>
-            <li>Intelligentsia - 10s interval (max 12 questions).</li>
-        </ul>
-    </li>
-    <li>Each correct answer will add a red star the user's score.</li>
-    <li>The final score is calculated as a percentage based on the number of correct answer divided by the
-        maximum questions for the game level.</li>
-</ul>
-</section>`;
+
+window.onload = function () {
+    displayHomePanel();
+};
 
 // Add event listeners
 
 document.addEventListener("DOMContentLoaded", function () {
-    /*        for (let button in homePanelButtons) {
-                button.addEventListener("click", displayHomePanel);
-            } */
+    // controls Area
     homePanelButton.addEventListener("click", displayHomePanel);
     menuPanelButton.addEventListener("click", displayMenuPanel);
-})
+    menuPanelButton.addEventListener("click", stopCountDown);
+
+    // menu panel
+    welcomeButton.addEventListener("click", displayHomePanel);
+    quizButton.addEventListener("click", displayQuizPanel);
+    rulesButton.addEventListener("click", displayRulesPanel);
+    scoresButton.addEventListener("click", displayScoresPanel);
+
+    //quiz panel
+    quizAnswer1.addEventListener("click", function () {
+        checkAnswer("A");
+    });
+    quizAnswer2.addEventListener("click", function () {
+        checkAnswer("B");
+    });
+    quizAnswer3.addEventListener("click", function () {
+        checkAnswer("C");
+    });
+    quizAnswer4.addEventListener("click", function () {
+        checkAnswer("D");
+    });
+    quizAnswer1.addEventListener("keydown", function () {
+        checkAnswer("A");
+    });
+    quizAnswer2.addEventListener("keydown", function () {
+        checkAnswer("B");
+    });
+    quizAnswer3.addEventListener("keydown", function () {
+        checkAnswer("C");
+    });
+    quizAnswer4.addEventListener("keydown", function () {
+        checkAnswer("D");
+    });
+    nextQuestion.addEventListener("click", function(){
+        console.log("Next Question");
+    });
+    nextQuestion.addEventListener("click", loadNextQuestion);
+    nextQuestion.addEventListener("click", stopCountDown);
+    nextQuestion.addEventListener("keydown", loadNextQuestion);
+    nextQuestion.addEventListener("keydown", stopCountDown);
+});
+
+function hidePanels() {
+// hide timers as well
+    gameTimerDisplay.classList.add("hidden");
+    questionTimerDisplay.classList.add("hidden");    
+
+    let panels = document.getElementsByClassName("panel");
+    for (let i = 0; i < panels.length; i++)
+        panels[i].classList.add("hidden");
+}
 
 function displayHomePanel() {
     console.log("Home Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
-    }
-    displayArea.innerHTML = welcomePanel;
+    hidePanels();
+    welcomePanel.classList.remove("hidden");
+    currentPanel = "welcome-panel";
 }
 
 function displayMenuPanel() {
     console.log("Menu Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
-    }
-    displayArea.innerHTML = menuPanel;
-    console.log("display area", document.getElementById("btn-welcome"));
-    document.getElementById("btn-welcome").addEventListener("click", displayHomePanel);
-    document.getElementById("btn-quiz").addEventListener("click", displayQuizPanel);
-    document.getElementById("btn-rules").addEventListener("click", displayRulesPanel);
-    document.getElementById("btn-scores").addEventListener("click", displayScoresPanel);
-
+    hidePanels();
+    menuPanel.classList.remove("hidden");
+    currentPanel = "menu-panel";
 }
+
 
 function displayQuizPanel() {
     console.log("Quiz Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
+    hidePanels();
+    quizPanel.classList.remove("hidden");
+    currentPanel = "quiz-panel";
     loadQuizQuestions();
-     }
 }
 
 function displayRulesPanel() {
     console.log("Rules Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
-    }
-    displayArea.innerHTML = rulesPanel;
+    hidePanels();
+    rulesPanel.classList.remove("hidden");
+    currentPanel = "rules-panel";
 }
-
-/* 
-    let quizArea = document.getElementById("quiz-panel");
-    let resultsArea = document.getElementById("results-area");
-    
-        if(!runQuiz(question.answer)){
-            /* append answer and linkto to resultsPanel */
 
 function displayScoresPanel() {
     console.log("Scores Panel");
-    if (displayArea.hasChildNodes()) {
-        displayArea.removeChild(displayArea.firstChild);
-    }
-    displayArea.innerHTML = `<p>Scores Panel</p>`;
+    hidePanels();
+    scoresPanel.classList.remove("hidden");
+    currentPanel = "scores-panel";
 }
 
-function loadQuizQuestions(){
-    let correctAnswerCount = 0;
-    let correctAnswerDisplay = document.getElementById("correct-answers");
-    for (let question of quizQuestions){
-        let correctAnswer = question.answer;
-        let quizHTML = `<h2>${question.question}</h2>
-        <button id="btn-answer-1" class="btn-answer">${question.a}</button>
-        <button id="btn-answer-2" class="btn-answer">${question.b}</button>
-        <button id="btn-answer-3" class="btn-answer">${question.c}</button>
-        <button id="btn-answer-4" class="btn-answer">${question.d}</button>`;
-        displayArea.innerHTML=quizHTML; 
-        correctAnswerDisplay.innerText = correctAnswerCount;
+function loadQuizQuestions() {
+    console.log("load Quiz Questions");
+    document.getElementById("correct-answers").value = 0;
+    for (let currentQuestion of quizQuestions) {
+            quizQuestion.innerText = currentQuestion.question;
+            quizAnswer1.innerText = currentQuestion.a;
+            quizAnswer2.innerText = currentQuestion.b;
+            quizAnswer3.innerText = currentQuestion.c;
+            quizAnswer4.innerText = currentQuestion.d;
+            quizCorrectAnswer = currentQuestion.answer;
+            console.log(quizCorrectAnswer);
+            questionTimerBool = true;
+            console.log("in for before wait");
+            waitResponse();
+            console.log("in for after wait");
+        };
+}
+
+/*        if (nextQuestionBool) {
+            continue;
+        } else {
+            break;
+        }*/
+
+
+function checkAnswer(selectedAnswer) {
+    correctAnswerDisplay.innerText = quizCorrectAnswer === selectedAnswer ? ++correctAnswerCount : correctAnswerCount;
+}
+
+// Timers
+//setInterval(gameCountDown, 1000);
+
+function gameCountDown() {
+    const minutes = Math.floor(gameTime / 60);
+    do {
+        let seconds = gameTime % 60;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        gameTimerDisplay.innerHTML = `${minutes}:${seconds}`;
     }
-} 
+    while (gameTime-- > 0 && gameTimerBool);
+}
 
-function countDown() {
-    // Set the date we're counting down to
-    var countDownDate = new Date(Date.now() + (1000 * 60 * 2) + 2);
+function waitResponse () {
+    const questionInterval = setInterval(questionCountDown, 1000);
+    let time = 5;
+    questionTimerDisplay.classList.remove("hidden");
+    function questionCountDown() {
+        console.log("QuestionCountDown Time", time);
+        let remainingSeconds = time % 60;
+        remainingSeconds = remainingSeconds < 10 ? '0'+ remainingSeconds : remainingSeconds;
+        questionTimerDisplay.innerHTML = `${remainingSeconds}`;
 
-    // Update the count down every 1 second
-    var x = setInterval(function () {
-        // Get today's date and time
-        var now = new Date().getTime();
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
-        // Calculate the minutes and seconds
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        document.getElementById("timer").innerText = minutes + "." + seconds;
-        // If the count down is over, write some text 
-        if (distance < 0) {
-            clearInterval(x);
-        }
-    }, 1000);
+       if (time >= 1){
+          time--;
+        } else {
+          clearInterval(questionInterval);
+          nextQuestionBool = true;
+          return(true);
+        }; 
+    }
+}
+
+
+
+
+function MyquestionCountDown() {
+    questionTimerDisplay.classList.remove("hidden");
+    do {
+        let seconds = questionTime;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        questionTimerDisplay.innerHTML = `${seconds}`;
+    }
+    while (questionTime-- > 0 && questionTimerBool);
+}
+
+function stopCountDown() {
+    questionTimerBool = false;
+    nextQuestionBool = false;
+}
+
+function loadNextQuestion() {
+    nextQuestionBool = true;
 }

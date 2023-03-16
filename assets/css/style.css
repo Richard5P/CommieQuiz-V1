@@ -14,6 +14,7 @@
 --commie-red75: rgba(203,29,29,0.5);
 --clr-btn: #cb1d1d;;
 --clr-text: white;
+--clr-bnt-border: black;
 }
 
 
@@ -42,9 +43,13 @@ html, body, button {
     font-family:'PytoneOne',sans-serif;
 }
 
-h1,h2,h3 {
+h1 {
     font-family:'propaganda',sans-serif;
 } 
+
+h2, h3 {
+    font-family:'PytoneOne',sans-serif;
+}
 
 
 /* Feature Areas */
@@ -59,30 +64,36 @@ h1,h2,h3 {
     margin-right: 30vw;
 }
 
-#controls-area{
-    position: absolute;
-    top:0;
-    width: 100%;
-    visibility: visible;
-    text-align: justify;
-    display: inline;
-    height: 2.7em;
-    line-height: 2.7em;
-    background-color: var(--commie-red75);
-}
-
-#game-area{
+#panel-area{
     position:absolute;
     top: 2rem;
     width: 80%;
     height: 80%;
     margin: 5% 10%;
-    background-color:aqua;
+    background-color:#FEE8DA;
     border: 1.5px solid white;
 }
 
+#controls-area{
+    position: absolute;
+    top:0;
+    width: 100%;
+    visibility: visible;
+    height: 4em;
+    line-height: 2.7em;
+    background-color: var(--commie-red75);
+}
+
+#controls-area>ul {
+    list-style-type: none;
+}
+
+#controls-area>ul>li {
+    display: inline;
+}
+
 /* Styles */
-#header {
+#header{
     margin:0;
     padding: 1.75rem 0;
     font-size: 4.25em;
@@ -98,7 +109,7 @@ h1,h2,h3 {
     font-size: 2rem;
 }
 
-#menu-button {
+#btn-menu {
     float: right;
 }
 
@@ -106,36 +117,40 @@ h1,h2,h3 {
     background-color: var(--clr-btn);
     width: 170px;
     height: 60px;
-    border: .5rem groove black;
+    border: .5rem groove var(--clr-bnt-border);
     font-size: 1.5em;
     color: var(--clr-text);
   }
 
 .btn-answer {
     background-color: var(--clr-btn);
-    width: 170px;
-    height: 60px;
+    margin: 1rem;
+    width: 10em;
+    height: 5em;
     border: none;
-    font-size: 16px;
+    font-size: 1.15em;
     color: var(--clr-text);
   }
 /* Game Panels */
 
-#welcome {
-    visibility: visible;
+.welcome {
+    padding:.4rem 2rem;
 }
 
-#rules-panel {
+.panel {
     position:absolute;
-    top: 2rem;
+    top: 1rem;
     left: 2rem;
-    margin: 1rem;
+    margin: 0;
+    padding: 0;
 }
 
 /* Functional classes */
 
 .hidden {
     visibility: hidden;
+    margin: 0;
+    padding:0;
 }
 
 #btn-welcome
@@ -161,3 +176,9 @@ h1,h2,h3 {
     top:15.5rem;
     left: 4rem;
 }
+
+.timer
+{   display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75em}
