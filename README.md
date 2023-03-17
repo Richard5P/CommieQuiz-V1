@@ -137,27 +137,23 @@ The site owner’s goal is to provide Communist edutainment for anyone intereste
 
 ### User Stories
 
-1. As a user interested in indigenous culture I expect to find meaningful information.
-0. I expect the qualifications first and foremost.
-0. As a user interested in language, I expect to see:
-    1. Languages taught.
-    2. Qualifications earned.
-0. As a user interested in different cultures, I expect to see:
-    1. Information on the contents of a class.
-    2. Identification of each culture offered in the program.
-0. As a user, I expect to see:
-    1. Information about the time commitment.
-    2. Information about time schedules.
-0. As a professional user (academic or business), I am interested in the availability of bespoke programs.
+1. As a user interested in Communism I expect to find meaningful information.
+0. As a user interested in having fun, I expect to see:
+    1. Easy instructions on the game.
+    2. Clear indication of success/failure.
+0. As a user interested in learning more about Communism, I expect to see:
+    1. Information about the sources of the questions.
+    2. Identification of resources to expand my knowledge.
 
 ## Visual Design
 ### Wireframes
-[Wireframes History](https://drive.google.com/drive/folders/1MC90lZssd6aURDya1wHe3fbtSQ6kODsg?usp=share_link)
+[Wireframes History](https://drive.google.com/drive/folders/1R_e4YYHX8hCsZ3t90KANj8HxL-HNT3lr?usp=sharing)
 
 ### Icons
-- Hammer and sickle icon created by Freepik - Flaticon[Flaticon](https://www.flaticon.com/free-icons/hammer-and-sickle)
+- Hammer and sickle icon created by Freepik - [Flaticon](https://www.flaticon.com/free-icons/hammer-and-sickle)
 
 ### Content
+- The questions (and eventually the referral resources) are from documents on the [Marxist Internet Archive](https://www.marxists.org/)
 
 #### Fonts
 Both fonts are supposed to look like lettering that might appear on a soviet propaganda poster.
